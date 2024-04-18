@@ -1,6 +1,5 @@
 package com.menna.supporttest.ui.composables
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -16,6 +15,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import coil.compose.AsyncImage
 import com.menna.supporttest.R
 import com.menna.supporttest.ui.theme.Black37
 import com.menna.supporttest.ui.theme.Black60
@@ -25,6 +25,7 @@ import com.menna.supporttest.ui.theme.Typography
 
 @Composable
 fun ItemCard(
+    imageUrl: String,
     name: String,
     author: String,
     title: String,
@@ -39,26 +40,32 @@ fun ItemCard(
             .padding(8.dp),
         verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
-        Image(
-            modifier = Modifier.fillMaxWidth().clip(Shapes.medium).aspectRatio(16f / 9f),
-            painter = painterResource(R.drawable.image),
-            contentDescription = "Image",
+        AsyncImage(
+            model = imageUrl, contentDescription = "Image",
+            modifier = Modifier
+                .fillMaxWidth()
+                .clip(Shapes.medium)
+                .aspectRatio(16f / 9f),
             contentScale = ContentScale.Crop
         )
         Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
             Text(text = name, style = Typography.titleLarge)
-            Icon(painter = painterResource(id = R.drawable.link),
+            Icon(
+                painter = painterResource(id = R.drawable.link),
                 tint = Black60,
-                contentDescription = "Link")
+                contentDescription = "Link"
+            )
         }
         Text(text = author, style = Typography.titleMedium)
         Text(text = title, style = Typography.bodyLarge)
         Text(text = description, style = Typography.bodySmall)
         Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
             Text(text = date, style = Typography.bodyMedium)
-            Icon(painter = painterResource(R.drawable.heart),
+            Icon(
+                painter = painterResource(R.drawable.heart),
                 tint = Black37,
-                contentDescription = "Link")
+                contentDescription = "Link"
+            )
         }
     }
 }

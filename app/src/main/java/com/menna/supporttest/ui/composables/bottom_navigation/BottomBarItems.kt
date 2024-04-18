@@ -1,4 +1,4 @@
-package com.menna.supporttest.ui.features.bottom_navigation
+package com.menna.supporttest.ui.composables.bottom_navigation
 
 import com.menna.supporttest.R
 import com.menna.supporttest.ui.navigation.Screens

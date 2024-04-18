@@ -14,10 +14,12 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
 import com.menna.supporttest.ui.LocalNavigationProvider
-import com.menna.supporttest.ui.features.bottom_navigation.BottomBarUI
+import com.menna.supporttest.ui.composables.bottom_navigation.BottomBarUI
 import com.menna.supporttest.ui.navigation.NavGraph
 import com.menna.supporttest.ui.theme.SupportTestTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     @OptIn(ExperimentalMaterial3Api::class)
     override fun onCreate(savedInstanceState: Bundle?) {

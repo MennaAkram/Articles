@@ -1,8 +1,8 @@
 package com.menna.supporttest.di
 
-import com.menna.supporttest.data.repository.Repository
 import com.menna.supporttest.data.repository.RepositoryImp
 import com.menna.supporttest.data.source.remote.network.ApiService
+import com.menna.supporttest.domain.repository.Repository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -15,7 +15,7 @@ object RepositoryModule {
 
     @Singleton
     @Provides
-    fun bindTriviaRepository(triviaService: ApiService): Repository {
-        return RepositoryImp(triviaService)
+    fun bindRepository(service: ApiService): Repository {
+        return RepositoryImp(service)
     }
 }

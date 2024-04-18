@@ -1,4 +1,4 @@
-package com.menna.supporttest.ui.features.bottom_navigation
+package com.menna.supporttest.ui.composables.bottom_navigation
 
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.material3.Icon
