@@ -7,7 +7,7 @@ import com.menna.supporttest.domain.models.Source
 import kotlinx.datetime.LocalDateTime
 
 fun ArticleDto.toArticle() = Article(
-    source = source?.toSource() ?: Source("", ""),
+    source = source?.toSource(id = title+ publishedAt) ?: Source("", ""),
     title = title ?: "",
     description = description ?: "",
     author = author ?: "",
@@ -15,12 +15,12 @@ fun ArticleDto.toArticle() = Article(
     urlToImage = urlToImage ?: "",
     publishedAt = publishedAt?.let { LocalDateTime.parse(publishedAt.removeRange(16, 20)) }
         ?: LocalDateTime(2001, 10, 27, 0, 0, 0),
-    content = content ?: ""
+    isFavorite = false
 )
 
-fun SourceDto.toSource(): Source {
+fun SourceDto.toSource(id: String): Source {
   return Source(
-    id = id ?: "",
+    id = id,
     name = name ?: ""
   )
 }

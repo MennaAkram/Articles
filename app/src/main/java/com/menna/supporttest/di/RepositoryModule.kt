@@ -1,21 +1,18 @@
 package com.menna.supporttest.di
 
 import com.menna.supporttest.data.repository.RepositoryImp
-import com.menna.supporttest.data.source.remote.network.ApiService
 import com.menna.supporttest.domain.repository.Repository
+import dagger.Binds
 import dagger.Module
-import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object RepositoryModule {
+abstract class RepositoryModule {
 
     @Singleton
-    @Provides
-    fun bindRepository(service: ApiService): Repository {
-        return RepositoryImp(service)
-    }
+    @Binds
+    abstract fun bindRepository(repositoryImp: RepositoryImp): Repository
 }

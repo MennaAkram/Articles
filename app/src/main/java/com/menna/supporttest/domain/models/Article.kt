@@ -10,7 +10,7 @@ data class Article(
     val url: String,
     val urlToImage: String,
     val publishedAt: LocalDateTime,
-    val content: String
+    val isFavorite: Boolean,
 )
 
 data class Source(
